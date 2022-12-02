@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerModel2 : PlayerMovement
+public class PlayerModel2 : PlayerMovement //INHERITANCE
 {
     int jumpCount = 0;
 
-    protected override void Grounded()
+    protected override void Grounded() //POLYMORPHISM
     {
         jumpCount = 0;
         base.Grounded();
     }
 
-    protected override void Jump()
+    protected override void Jump() //POLYMORPHISM
     {
         if(jumpCount>1) return;
         jumpCount++;

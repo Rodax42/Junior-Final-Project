@@ -2137,6 +2137,7 @@ MonoBehaviour:
   dirtSplatter: {fileID: 3271695208477111730}
   jumpS: {fileID: 8300000, guid: 0f7d0b7c3397f4dac91f20e8a77d2d57, type: 3}
   crashS: {fileID: 8300000, guid: e7ee25a47d63b46cdaf65480d62b405c, type: 3}
+  hasShield: 1
 --- !u!1 &6843507998588329072
 GameObject:
   m_ObjectHideFlags: 0
