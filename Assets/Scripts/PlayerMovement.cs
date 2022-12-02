@@ -5,15 +5,19 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody rbd;
-    public float jumpForce = 100;
-    public float gravity;
+    private float jumpForce = 600;
+    private float gravity = 2;
     public bool onGround, gameOver;
-    public static PlayerMovement player;
+    public static PlayerMovement player {get;private set;}
     Animator anim;
-    public ParticleSystem explosionParticle;
-    public ParticleSystem dirtSplatter;
-    public AudioClip jumpS;
-    public AudioClip crashS;
+    [SerializeField]
+    private ParticleSystem explosionParticle;
+    [SerializeField]
+    private ParticleSystem dirtSplatter;
+    [SerializeField]
+    private AudioClip jumpS;
+    [SerializeField]
+    private AudioClip crashS;
     AudioSource aS;
 
     // Start is called before the first frame update
@@ -31,11 +35,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(PlayerMovement.player.gameOver) return;
         if(Input.GetKeyDown(KeyCode.Space) && onGround){
-            rbd.AddForce(Vector3.up*jumpForce,ForceMode.Impulse);
-            anim.SetTrigger("Jump_trig");
-            onGround = false;
-            dirtSplatter.Stop();
-            aS.PlayOneShot(jumpS, 1f);
+            Jump();
         }
     }
 
@@ -45,13 +45,24 @@ public class PlayerMovement : MonoBehaviour
             dirtSplatter.Play();
         }
         else if (other.gameObject.CompareTag("Obstacle")){
-            anim.SetBool("Death_b",true);
-            anim.SetInteger("DeathType_int",1);
-            gameOver = true;
-            Debug.Log("GameOver");
-            explosionParticle.Play();
-            dirtSplatter.Stop();
-            aS.PlayOneShot(crashS, 1f);
+            Crash();
         }
+    }
+
+    protected void Jump(){
+        rbd.AddForce(Vector3.up*jumpForce,ForceMode.Impulse);
+        anim.SetTrigger("Jump_trig");
+        onGround = false;
+        dirtSplatter.Stop();
+        aS.PlayOneShot(jumpS, 1f);
+    }
+
+    protected void Crash(){
+        anim.SetBool("Death_b",true);
+        anim.SetInteger("DeathType_int",1);
+        gameOver = true;
+        explosionParticle.Play();
+        dirtSplatter.Stop();
+        aS.PlayOneShot(crashS, 1f);
     }
 }
