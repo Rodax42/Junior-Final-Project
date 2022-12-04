@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rbd = GetComponent<Rigidbody>();
-        Physics.gravity *= gravity;
+        Physics.gravity = Vector3.down * 9.81f * gravity;
         player = this;
         anim = GetComponent<Animator>();
         aS = GetComponent<AudioSource>();
@@ -69,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
         explosionParticle.Play();
         dirtSplatter.Stop();
         aS.PlayOneShot(crashS, 1f);
+        StartCoroutine(MainController.instance.Reload());
     }
 
     protected void Crash(Collision other){ //POLYMORPHISM

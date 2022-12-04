@@ -190,6 +190,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 513678883132670188, guid: 01a1799196bda8343b949d5c839d1c21, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 513678883132769803, guid: 01a1799196bda8343b949d5c839d1c21, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01a1799196bda8343b949d5c839d1c21, type: 3}
 --- !u!1 &49990862
@@ -276,8 +284,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1736442872}
-        m_TargetAssemblyTypeName: CharacterSelect, Assembly-CSharp
+      - m_Target: {fileID: 392337975}
+        m_TargetAssemblyTypeName: MainController, Assembly-CSharp
         m_MethodName: Select
         m_Mode: 3
         m_Arguments:
@@ -504,8 +512,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1736442872}
-        m_TargetAssemblyTypeName: CharacterSelect, Assembly-CSharp
+      - m_Target: {fileID: 392337975}
+        m_TargetAssemblyTypeName: MainController, Assembly-CSharp
         m_MethodName: Select
         m_Mode: 3
         m_Arguments:
@@ -753,6 +761,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6843507998588329004, guid: ac6c0f76d2e5a044a8821562a7946f30, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6843507998588361417, guid: ac6c0f76d2e5a044a8821562a7946f30, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 6843507998597820334, guid: ac6c0f76d2e5a044a8821562a7946f30, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -903,6 +919,56 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6843507998588329004, guid: ac6c0f76d2e5a044a8821562a7946f30, type: 3}
   m_PrefabInstance: {fileID: 316997680}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &392337974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 392337976}
+  - component: {fileID: 392337975}
+  m_Layer: 0
+  m_Name: MainManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &392337975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392337974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a47936997f82f3240bcfa7d812a74cb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  players:
+  - {fileID: 286051844}
+  - {fileID: 1858343966}
+  - {fileID: 358349801}
+  toEnable: {fileID: 623279984}
+  toDisable: {fileID: 1512558594}
+--- !u!4 &392337976
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392337974}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,6 +1284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 30
   outOfBounds: -15
+  explosion: {fileID: 0}
 --- !u!114 &835818923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1597,7 +1664,6 @@ GameObject:
   - component: {fileID: 1736442870}
   - component: {fileID: 1736442869}
   - component: {fileID: 1736442868}
-  - component: {fileID: 1736442872}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1691,24 +1757,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1736442872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1736442867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 920d36a685270c54f95ac457527b4cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  players:
-  - {fileID: 286051844}
-  - {fileID: 1858343966}
-  - {fileID: 358349801}
-  toEnable: {fileID: 623279984}
-  toDisable: {fileID: 1512558594}
 --- !u!1 &1858343966 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 513678883132670188, guid: 01a1799196bda8343b949d5c839d1c21, type: 3}
@@ -1845,8 +1893,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1736442872}
-        m_TargetAssemblyTypeName: CharacterSelect, Assembly-CSharp
+      - m_Target: {fileID: 392337975}
+        m_TargetAssemblyTypeName: MainController, Assembly-CSharp
         m_MethodName: Select
         m_Mode: 3
         m_Arguments:
@@ -2202,6 +2250,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6290795793466558297, guid: 6e251e1c9be644945bc489ff7a1f8507, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 6290795793466589586, guid: 6e251e1c9be644945bc489ff7a1f8507, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2209,6 +2261,10 @@ PrefabInstance:
     - target: {fileID: 6290795793466589586, guid: 6e251e1c9be644945bc489ff7a1f8507, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6290795793466589586, guid: 6e251e1c9be644945bc489ff7a1f8507, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6290795793466957298, guid: 6e251e1c9be644945bc489ff7a1f8507, type: 3}
       propertyPath: m_RootOrder

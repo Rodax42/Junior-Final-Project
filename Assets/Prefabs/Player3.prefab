@@ -1937,6 +1937,7 @@ GameObject:
   - component: {fileID: 6843507998588361418}
   - component: {fileID: 6843507998588361416}
   - component: {fileID: 6843507998588361419}
+  - component: {fileID: 4781737978883254876}
   m_Layer: 0
   m_Name: Player3
   m_TagString: Untagged
@@ -2138,6 +2139,19 @@ MonoBehaviour:
   jumpS: {fileID: 8300000, guid: 0f7d0b7c3397f4dac91f20e8a77d2d57, type: 3}
   crashS: {fileID: 8300000, guid: e7ee25a47d63b46cdaf65480d62b405c, type: 3}
   hasShield: 1
+--- !u!65 &4781737978883254876
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6843507998588329004}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1.3, y: 3.3, z: 1.2}
+  m_Center: {x: 0, y: 1.5039654, z: 0}
 --- !u!1 &6843507998588329072
 GameObject:
   m_ObjectHideFlags: 0
