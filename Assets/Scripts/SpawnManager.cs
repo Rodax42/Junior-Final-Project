@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public GameObject obstacle;
-    public Vector3 spawnPos = new Vector3(25,0,0);
-    public float spawnStart = 2f;
-    public float spawnRepeat = 2f;
+    [SerializeField]
+    private List<GameObject> obstacle = new List<GameObject>();
+    private Vector3 spawnPos = new Vector3(25,1,0);
+    private float spawnStart = 2f;
+    private float spawnRepeat = 2f;
 
     void Start()
     {
@@ -16,6 +17,7 @@ public class SpawnManager : MonoBehaviour
 
     public void SpawnObstacle(){
         if(PlayerMovement.player.gameOver) return;
-        Instantiate(obstacle,spawnPos,obstacle.transform.rotation);
+        int index = Random.Range(0,2);
+        Instantiate(obstacle[index],spawnPos,obstacle[index].transform.rotation);
     }
 }

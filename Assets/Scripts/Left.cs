@@ -7,7 +7,12 @@ public class Left : MonoBehaviour
     [SerializeField]
     protected float speed = 30; // ENCAPSULATION
     [SerializeField]
-    private float outOfBounds = -15; // ENCAPSULATION
+    protected float outOfBounds = -15; // ENCAPSULATION
+    protected Vector3 direction;
+
+    private void Start() {
+        direction = Vector3.left;
+    }
 
     void Update()
     {
@@ -16,7 +21,7 @@ public class Left : MonoBehaviour
     }
 
     protected virtual void Move(){ // ABSTRACTION
-        transform.Translate(Vector3.left*Time.deltaTime*speed);
+        transform.Translate(direction*Time.deltaTime*speed);
         if(gameObject.tag == "Obstacle" && transform.position.x < outOfBounds){
             Destroy(gameObject);
         }
